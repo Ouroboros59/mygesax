@@ -13,3 +13,4 @@ class Grade(models.Model):
     note = models.PositiveIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE, default="")
