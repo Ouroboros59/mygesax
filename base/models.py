@@ -11,5 +11,5 @@ class Promotion(models.Model):
 
 class Grade(models.Model):
     note = models.PositiveIntegerField()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
