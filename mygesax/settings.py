@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'esgi_project_1.urls'
+ROOT_URLCONF = 'mygesax.urls'
 
 TEMPLATES = [
     {
