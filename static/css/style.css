@@ -1,7 +1,13 @@
 body {
-    background-color: #FAFAF9   ;
+	background-color: #fafaf9;
 }
 
 main {
-    margin-top: 4rem;
+	margin-top: 4rem;
+}
+
+.sidebar {
+	width: 12rem;
+	background-color: red;
+	height: 100%;
 }

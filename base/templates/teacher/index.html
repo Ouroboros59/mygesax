@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div class="sidebar">
+	<ul class="list">
+		<li><a href="{% url 'user'%}">Users</a></li>
+		<li><a href="{% url 'class'%}">Classes</a></li>
+		<li><a href="{% url 'subject'%}">Subjects</a></li>
+	</ul>
+</div>
+<section>{% block section %} {% endblock %}</section>
+<style>
+	.sidebar {
+		background-color: #e5e7eb;
+		height: 100%;
+		min-width: 16rem;
+		padding: 2rem;
+		color: #0f172a;
+	}
+	.list {
+		list-style: none;
+		cursor: pointer;
+	}
+	.list > li:hover {
+		color: #1d4ed8;
+	}
+</style>
+{% endblock %}
