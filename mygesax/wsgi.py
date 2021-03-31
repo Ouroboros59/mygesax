@@ -1,5 +1,5 @@
 """
-WSGI config for esgi_project_1 project.
+WSGI config for mygesax project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'esgi_project_1.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mygesax.settings')
 
 application = get_wsgi_application()
