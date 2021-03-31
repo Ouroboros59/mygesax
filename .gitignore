@@ -366,6 +366,8 @@ modules.xml
 # operating system-related files
 
 # profiling data
+.prof
+/data
 
 
 ### VisualStudioCode ###
