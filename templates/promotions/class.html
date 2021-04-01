@@ -8,12 +8,14 @@
             <tr>
                 <th>Subject Name</th>
                 <th>Subject Description</th>
+                <th>button</th>
                 <th>Student</th>
             </tr>
             {% for subject in object_list %}
             <tr>
                 <td>{{ subject.name }}</td>
                 <td>{{ subject.description}}</td>
+                <td><a href="/subject/add/grades/?subject={{ subject.id }}" class="button button-outline">add grade</a></td>
                 <td>
                     {% for student in subject.users.all %}
                         <li>{{ student.username }}</li>
