@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-class Subject(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.TextField()
+from subject.models import Subject
 
 class Promotion(models.Model):
     name = models.CharField(max_length=30)
