@@ -4,23 +4,38 @@
     <h2>Promotions</h2>
     <ul>
         {% for promotion in object_list %}
-        <table>
-            <caption>Promo Name: {{ promotion.name }}</caption>
-            <tr>
-                <th>Subject Name</th>
-                <th>Subject description</th>
-                <th>Subject Grade</th>
-            </tr>
-            {% for subject in promotion.subjects.all %}
-            <tr>
-                <td>{{ subject.name }}</td>
-                <td>{{ subject.description}}</td>
-                <td>{{ subject.grade.note}}</td>
-            {% empty %}
-                <li>No subject in this Promo yet.</li>
-            {% endfor %}
-            </tr>
-        </table>
+            <table>
+                <caption>Promo Name: {{ promotion.name }}</caption>
+                <tr>
+                    <th>Subject Name</th>
+                    <th>Subject description</th>
+                    <th>Subject Grade</th>
+                    <th>Subject pass mark</th>
+                </tr>
+                {% for subject in promotion.subjects.all %}
+                    <tr>
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.description }}</td>
+                    <td>
+                        {% for grade in grades %}
+                            {% ifequal grade.subject|stringformat:"s" subject.name %}
+                                {{ grade.note }}
+                            {% endifequal %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for m in moy %}
+                            {% if m.0 == subject.id %}
+                                {{ m.1 }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                {% empty %}
+                    <li>No subject in this Promo yet.</li>
+                {% endfor %}
+                </tr>
+                </tr>
+            </table>
         {% empty %}
             <li>No Promo yet.</li>
         {% endfor %}

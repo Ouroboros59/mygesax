@@ -10,14 +10,15 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
 
+
 class Promotion(models.Model):
     name = models.CharField(max_length=30)
     users = models.ManyToManyField(User)
     subjects = models.ManyToManyField(Subject)
 
-
     def __str__(self):
         return self.name
+
 
 class Grade(models.Model):
     note = models.PositiveIntegerField()
