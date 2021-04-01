@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class Subject(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField()
+    users = models.ManyToManyField(User)
 
 class Promotion(models.Model):
     name = models.CharField(max_length=30)
