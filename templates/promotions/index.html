@@ -5,7 +5,7 @@
     <ul>
         {% for promotion in object_list %}
             <table>
-                <caption>Promo Name: {{ promotion.name }}</caption>
+                <caption>Promo Name: <a href="{{promotion.name}}">{{ promotion.name }}</a></caption>
                 <tr>
                     <th>Subject Name</th>
                     <th>Subject description</th>

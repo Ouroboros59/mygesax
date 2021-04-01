@@ -2,10 +2,11 @@ from statistics import mean
 
 from django.shortcuts import render
 from django.views.generic import ListView
-from base.models import Promotion, Grade
+from base.models import Promotion, Grade, Promotion, Subject
 from django.views import generic
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.decorators import login_required 
 
 class UserPromotionList(ListView):
     model = Promotion
@@ -46,4 +47,17 @@ class HomeView(generic.CreateView):
     
     def get_queryset(self):
         return self.request.user
-    
+
+class TeacherClassList(ListView):
+    model = Subject 
+    context_object_name="teacher_trombi"
+    template_name="promotions/class.html"
+    def get_queryset(self):
+        return Subject.objects.filter(teacher=self.request.user.xteacher)
+
+class PromoList(ListView):
+    model = Promotion    
+    context_object_name="student_promotion"
+    template_name="promotions/promo.html"
+    def get_queryset(self):
+        return Promotion.objects.filter(name=self.kwargs['name'])
