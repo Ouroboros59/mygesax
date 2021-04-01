@@ -1,17 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 
-
-
-class Student(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    class Meta:
-        permissions = (
-            ("view_promotions", "can view promotions"),
-            ("view_subject", "can view subject"),
-        )
-
-
 class Subject(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField()
