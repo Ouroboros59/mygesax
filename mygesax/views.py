@@ -53,7 +53,7 @@ class TeacherClassList(ListView):
     context_object_name="teacher_trombi"
     template_name="promotions/class.html"
     def get_queryset(self):
-        return Subject.objects.filter(teacher=self.request.user.xteacher)
+        return Subject.objects.filter(teacher=self.request.user.teacher)
 
 class PromoList(ListView):
     model = Promotion    
