@@ -10,6 +10,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('supervisor/', include('base.urls')),
-    path('promotions/', views.UserPromotionList.as_view(), name="promotion"),
     path('', HomeView.as_view(), name='home'),
+
+    path('promotions/', views.UserPromotionList.as_view(), name="promotions"),
+    path('promotions/<name>', views.PromoList.as_view(), name="promotion"),
+    path('class/', views.TeacherClassList.as_view(), name="class"),
 ]

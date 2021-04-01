@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Class</h2>
+    <ul>
+        <table>
+            <caption>Your Class</caption>
+            <tr>
+                <th>Subject Name</th>
+                <th>Subject Description</th>
+                <th>Student</th>
+            </tr>
+            {% for subject in object_list %}
+            <tr>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.description}}</td>
+                <td>
+                    {% for student in subject.users.all %}
+                        <li>{{ student.username }}</li>
+                        {% empty %}
+                            <td>Nobody attends this class .</td>
+                    {% endfor %}
+                </td>
+            {% empty %}
+                <td>No class given yet.</td>
+            {% endfor %}
+            </tr>
+        </table>
+    </ul>
+{% endblock %}

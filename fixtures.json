@@ -1,4 +1,5 @@
 [
+
     {
         "model": "auth.user",
         "pk": 1,
@@ -6,28 +7,38 @@
             "username": "ttt",
             "password": "pbkdf2_sha256$216000$Xj4Auh8Lk56o$gmP3o8kHgJlqNFUI+go0JWmn1m1Pwhc1zHUU3YwvtyM="
         }
-    },    {
+    },
+    {
         "model": "auth.user",
         "pk": 2,
-        "fields": {
-            "username": "aaa",
-            "password": "pbkdf2_sha256$216000$Xj4Auh8Lk56o$gmP3o8kHgJlqNFUI+go0JWmn1m1Pwhc1zHUU3YwvtyM="
-        }
-    },    {
-        "model": "auth.user",
-        "pk": 3,
         "fields": {
             "username": "ccc",
             "password": "pbkdf2_sha256$216000$Xj4Auh8Lk56o$gmP3o8kHgJlqNFUI+go0JWmn1m1Pwhc1zHUU3YwvtyM="
         }
     },
     {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "dddd",
+            "password": "pbkdf2_sha256$216000$Xj4Auh8Lk56o$gmP3o8kHgJlqNFUI+go0JWmn1m1Pwhc1zHUU3YwvtyM="
+        }
+    },
+    {
+        "model": "base.teacher",
+        "pk": 1,
+        "fields": {
+            "user": 1
+        }
+    }, 
+    {
         "model": "base.subject",
         "pk": 1,
         "fields": {
             "name": "lalalalalal",
+            "teacher": 1,
             "description": ";a;a;a;pefmopem",
-            "users": [1,2,3]
+            "users": [2,3]
         }
     },
     {
@@ -35,8 +46,9 @@
         "pk": 2,
         "fields": {
             "name": "kkkkkkk",
+            "teacher": 1,
             "description": "dldldl",
-            "users": [1,2,3]
+            "users": [2,3]
         }
     },
     {
@@ -45,7 +57,7 @@
         "fields": {
             "name": "ppppppp",
             "description": "ddfmopem",
-            "users": [1,2,3]
+            "users": [2,3]
         }
     },
     {
