@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<div class="page-content">
+  <div class="sidebar">
+    <ul class="list">
+      <li><a href="{% url 'user'%}">Users</a></li>
+      <li><a href="{% url 'class'%}">Classes</a></li>
+      <li><a href="{% url 'subject'%}">Subjects</a></li>
+    </ul>
+  </div>
+	<section class="block-section">
+
+		<div class="container">{% block section %} {% endblock %}</div>
+	</section>
+</div>
+{% endblock %}

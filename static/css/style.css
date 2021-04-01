@@ -1,8 +1,124 @@
 body {
-    background-color: #FAFAF9   ;
+	background-color: #fafaf9;
 }
 
-main {
+.modal-window {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.25);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.3s;
+}
+.modal-window:target {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+}
+.modal-window > div {
+	width: 500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 2em;
+	background: white;
+	border: 1px solid #9b4dca;
+	margin: 2em;
+	max-height: 600px;
+	overflow-y: scroll;
+}
+.modal-window header {
+	font-weight: bold;
+}
+.modal-window h1 {
+	font-size: 150%;
+	margin: 0 0 15px;
+}
+
+.modal-close {
+	color: #aaa;
+	line-height: 50px;
+	font-size: 80%;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 0;
+	width: 70px;
+	text-decoration: none;
+}
+.modal-close:hover {
+	color: black;
+}
+
+.modal-window > div {
+	border-radius: 1rem;
+}
+
+.modal-window div:not(:last-of-type) {
+	margin-bottom: 15px;
+}
+
+.sidebar {
+	background-color: #e5e7eb;
+	height: 100%;
+	min-width: 16rem;
+	padding: 2rem;
+	color: #0f172a;
+}
+.list {
+	list-style: none;
+	cursor: pointer;
+}
+.list > li:hover {
+	color: #1d4ed8;
+}
+
+a {
+	cursor: pointer;
+}
+.page-content {
+	display: flex;
+	height: 100%;
+}
+.block-section {
+	display: flex;
+	margin: 4rem;
+}
+
+.btn-add {
+	background-color: #6EE7B7;
+	padding: 1rem;
+	color: white;
+	border-radius: 1rem;
+}
+
+
+.scrollbar::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #9b4dca;
     margin-top: 4rem;
 }
 

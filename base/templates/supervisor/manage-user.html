@@ -1,0 +1,55 @@
+{% extends './index.html' %}
+{% block section %}
+<a class="btn-add" href="#open-modal">Add User</a>
+
+<div class="main">
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Username</th>
+				<th>Email</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody> 
+		 {% for user in dataset %}
+			<tr id="user-{{ user.id}}">
+				<th>{{user.id}}</th>
+				<th>{{user.username}}</th>
+				<th>{{user.email}}</th>
+				<th>{{user.first_name}}</th>
+				<th>{{user.last_name}}</th>
+				<th><a href="{% url 'user-detail' id=user.id %}">EDIT</a></th>
+				<th><a onclick="submit_delete({{user.id}})">DEL</a></th>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<!-- The Modal -->
+<div id="open-modal" class="modal-window">
+	<div class="scrollbar">
+		<a href="#" title="Close" class="modal-close">Close</a>
+		<h1>Add a new user</h1>
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %} {{ form.as_p }}
+
+			<input type="submit" value="Submit" />
+		</form>
+	</div>
+</div>
+
+<script>
+  const submit_delete = (id) => {
+    fetch(id)
+      .then((res) => {
+				document.getElementById(`user-${id}`).remove()
+			})
+      .catch((err) => console.error(err));
+  };
+</script>
+{% endblock %}

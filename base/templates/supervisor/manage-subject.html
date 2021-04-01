@@ -1,0 +1,49 @@
+{% extends './index.html' %}
+{% block section %}
+<a class="btn-add" href="#open-modal">Add Subject</a>
+
+<div class="main">
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for subject in dataset %}
+			<tr id="subject-{{ subject.id}}">
+				<th>{{subject.id}}</th>
+				<th>{{subject.name}}</th>
+				<th>{{subject.description}}</th>
+				<th><a href="{% url 'subject-detail' id=subject.id %}">EDIT</a></th>
+				<th><a onclick="submit_delete({{subject.id}})">DEL</a></th>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<!-- Create Modal -->
+<div id="open-modal" class="modal-window">
+	<div class="scrollbar">
+		<a href="#" title="Close" class="modal-close">Close</a>
+		<h1>Add a new subject</h1>
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %} {{ form.as_p }}
+
+			<input type="submit" value="Submit" />
+		</form>
+	</div>
+</div>
+<script>
+  const submit_delete = (id) => {
+    fetch(id)
+      .then((res) => {
+				document.getElementById(`subject-${id}`).remove()
+			})
+      .catch((err) => console.error(err));
+  };
+</script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends './index.html' %} {% block section %}
+<a class="btn-add" href="#open-modal">Add Class</a>
+
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for class in dataset %}
+      <tr id="class-{{ class.id}}">
+        <th>{{class.id}}</th>
+        <th>{{class.name}}</th>
+        <th><a href="{% url 'class-detail' id=class.id %}">EDIT</a></th>
+        <th><a onclick="submit_delete({{class.id}})">DEL</a></th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- The Modal -->
+<div id="open-modal" class="modal-window">
+  <div class="scrollbar">
+    <a href="#" title="Close" class="modal-close">Close</a>
+    <h1>Add a new class</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.as_p }}
+
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+</div>
+<script>
+  const submit_delete = (id) => {
+    fetch(id)
+      .then((res) => {
+				document.getElementById(`class-${id}`).remove()
+			})
+      .catch((err) => console.error(err));
+  };
+</script>
+{% endblock %}
+
