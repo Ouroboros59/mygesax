@@ -1,5 +1,15 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
+
+
+
+class Student(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    class Meta:
+        permissions = (
+            ("view_promotions", "can view promotions"),
+            ("view_subject", "can view subject"),
+        )
 
 
 class Subject(models.Model):
@@ -13,6 +23,8 @@ class Subject(models.Model):
 class Promotion(models.Model):
     name = models.CharField(max_length=30)
     users = models.ManyToManyField(User)
+    subjects = models.ManyToManyField(Subject)
+
 
     def __str__(self):
         return self.name

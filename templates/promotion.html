@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Promotions</h2>
+    <ul>
+        {% for promotion in object_list %}
+            <li>Promotion name:{{ promotion.name }}</li>
+            {% for subject in promotion.subjects.all %}
+                <li>Subject Name: {{ subject.name }}</li>
+                <li>Subject Description: {{ subject.description }}</li>
+            {% empty %}
+                <li>No subject in this Promo yet.</li>
+            {% endfor %}
+            {% empty %}
+            <li>No Promo yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
