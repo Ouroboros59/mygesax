@@ -4,16 +4,24 @@
     <h2>Promotions</h2>
     <ul>
         {% for promotion in object_list %}
-            <li>Promotion name:
-                <a href="/trombinoscope">{{ promotion.name }}</a>
-                li>
+        <table>
+            <caption>Promo Name: {{ promotion.name }}</caption>
+            <tr>
+                <th>Subject Name</th>
+                <th>Subject description</th>
+                <th>Subject Grade</th>
+            </tr>
             {% for subject in promotion.subjects.all %}
-                <li>Subject Name: {{ subject.name }}</li>
-                <li>Subject Description: {{ subject.description }}</li>
+            <tr>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.description}}</td>
+                <td>{{ subject.grade.note}}</td>
             {% empty %}
                 <li>No subject in this Promo yet.</li>
             {% endfor %}
-            {% empty %}
+            </tr>
+        </table>
+        {% empty %}
             <li>No Promo yet.</li>
         {% endfor %}
     </ul>
