@@ -7,7 +7,7 @@ from .forms import SubjectForm
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
-def get_subject(request):
+def new_subject(request):
         # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
