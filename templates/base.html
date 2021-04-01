@@ -11,6 +11,23 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+  <header class="flex items-center">
+    <nav class="container flex items-center justify-between">
+      <a href="/" class="flex items-center">
+        <img src="{% static 'images/myges.svg' %}" width="78" />
+        <span class="font-bold text-myges">AX</span>
+      </a>
+      <ul class="flex">
+        {% if user.is_authenticated %}
+          <li style="margin-right: 2rem;">Welcome, {{ user.username }}</li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Log In</a></li>            
+        {% endif %}
+      </ul>
+    </nav>
+
+  </header>
   <main>
     {% block content %}
     {% endblock %}

@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from base.models import Subject, Grade, Promotion
+admin.site.register(Subject)
+admin.site.register(Grade)
+admin.site.register(Promotion)

@@ -5,11 +5,57 @@
 {% block content %}
 <section class="container">
   {% if user.is_authenticated %}
-    Hi {{ user.username }}!
+    <h1>Hi {{ user.username }}!</h1>
+    <a href="{% url 'csv_export' %}" target="_blank" class="button button-outline">Export users in .csv</a>
+    <div>
+      <h4>Import users from .csv</h4>
+      <form id="csv-import" action="{% url 'csv_import' %}" method="post">
+        {% csrf_token %}
+        <input type="file" accept=".csv"><br>
+        <button type="submit" >Import</button>
+        <span id="status"></span>
+      </form>
+    </div>
+
     <p><a href="{% url 'logout' %}">Log Out</a></p>
   {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Log In</a>
+    {% load static %}
+    <div class="flex flex-col items-center justify-center">
+    <a href="/" class="flex items-center">
+      <img src="{% static 'images/myges.svg' %}" width="200" />
+      <span class="font-bold text-myges-large">AX</span>
+    </a>
+    <h4>Extranet for GESAX network.</h4>
+    <a class="button" href="{% url 'login' %}">Log In</a>
+    </div>
   {% endif %}
 </section>
+<script>
+  const formImport = document.getElementById('csv-import');
+  const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]');
+  const inputFile = document.querySelector('input[type="file"]');
+  const headers = {
+    'X-CSRFToken': csrfToken.value,
+  };
+  formImport.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (inputFile.files.length) {
+        const formData = new FormData();
+      formData.append('file', inputFile.files[0]);
+      fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          ...headers,
+        },
+        body: formData,
+      }).then(res => res.json())
+      .then(res => {
+        const status = document.getElementById('status');
+        status.textContent = res.message;
+        status.style.color =  res.error ? 'red' : 'green';
+      });
+    }
+  });
+</script>
 {% endblock %}
