@@ -35,10 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'accounts',
     'subject',
     'base',
-    'django_extensions'
+    'thrombinoscope'
 ]
 
 MIDDLEWARE = [
