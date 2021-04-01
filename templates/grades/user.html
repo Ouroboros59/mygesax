@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Grade</h2>
+    <ul>
+        {% for grade in object_list %}
+            <li>Grade of Subject: {{ grade.subject.name }} </li>
+            <li>{{ grade.note }} /20 </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

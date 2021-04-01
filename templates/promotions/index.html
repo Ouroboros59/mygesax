@@ -4,7 +4,9 @@
     <h2>Promotions</h2>
     <ul>
         {% for promotion in object_list %}
-            <li>Promotion name:{{ promotion.name }}</li>
+            <li>Promotion name:
+                <a href="/trombinoscope">{{ promotion.name }}</a>
+                li>
             {% for subject in promotion.subjects.all %}
                 <li>Subject Name: {{ subject.name }}</li>
                 <li>Subject Description: {{ subject.description }}</li>

@@ -80,5 +80,32 @@
             "users": [2, 3],
             "subjects": [3]
         }
+    },
+    {
+        "model": "base.grade",
+        "pk": 1,
+        "fields": {
+            "note":14 ,
+            "user": 1,
+            "subject":1
+        }
+    },
+    {
+        "model": "base.grade",
+        "pk": 1,
+        "fields": {
+            "note":10 ,
+            "user": 1,
+            "subject":2
+        }
+    }, 
+    {
+        "model": "base.grade",
+        "pk": 1,
+        "fields": {
+            "note":4 ,
+            "user": 1,
+            "subject":3
+        }
     }
 ]

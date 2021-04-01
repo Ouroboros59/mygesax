@@ -7,6 +7,6 @@ from base.models import Promotion
 class UserPromotionList(ListView):
     model = Promotion
     context_object_name="student_promotions"
-    template_name="promotion.html"
+    template_name="promotion/index.html"
     def get_queryset(self):
         return Promotion.objects.filter(users=self.request.user)
