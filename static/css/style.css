@@ -2,10 +2,6 @@ body {
 	background-color: #fafaf9;
 }
 
-main {
-	margin-top: 4rem;
-}
-
 .modal-window {
 	position: fixed;
 	background-color: rgba(255, 255, 255, 0.25);
@@ -92,6 +88,7 @@ a {
 }
 .block-section {
 	display: flex;
+	margin: 4rem;
 }
 
 .btn-add {
@@ -122,4 +119,52 @@ a {
 	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #9b4dca;
+    margin-top: 4rem;
+}
+
+header {
+    border-bottom: .1rem solid #d1d1d1;
+    background-color: #f4f5f6;
+    height: 5.2rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+}
+
+.text-myges {
+    font-size: 15px;
+    font-weight: bold;
+    color: #9b4dca;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+.text-myges-large {
+    font-size: 42px;
+    font-weight: bold;
+    color: #9b4dca;
+    font-style: italic;
+    margin-top: 14px;
 }
