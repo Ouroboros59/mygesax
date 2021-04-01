@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Grade{% endblock %}
+
+{% block content %}
+<section class="container">
+  <h2>Add Grade</h2>
+  <form method="post">
+      {{ form.subject }}
+    {% csrf_token %}
+    {{ form.as_p }}
+      <button type="submit">Add</button>
+  </form>
+</section>
+{% endblock %}
