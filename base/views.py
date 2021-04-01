@@ -16,7 +16,6 @@ def index(request):
 @login_required
 @permission_required('auth.delete_user')
 def manage_user(request):
-  print(request.user.id)
   context = {}
   form = UserCreationForm(request.POST or None)
   if form.is_valid():

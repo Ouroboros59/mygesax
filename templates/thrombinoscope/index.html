@@ -1,1 +1,30 @@
-thrombi works
+{% extends 'base.html' %} {% block title %}Thrombinoscope{% endblock %} 
+{% block content %}
+<section style="margin: 4em">
+
+  <div style="display: flex; width: 40%;">
+     <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.as_p }}
+
+      <input type="submit" value="Update image" />
+    </form>
+  </div>
+  <div class="container wrapper">
+    {% for avatar in dataset %}
+      <div class=""><img src="{{avatar.avatar}}"></div>
+    {% endfor %}
+  </div>
+</section>
+<style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .wrapper > div > img {
+    width: 200px;
+    height: 200px;
+  }
+</style>
+{% endblock %}

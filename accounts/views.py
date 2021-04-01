@@ -5,6 +5,8 @@ from django.http import HttpResponse, JsonResponse
 import csv
 import json
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from base.models import UserProfile
 
 
 class SignUpView(generic.CreateView):
@@ -28,7 +30,6 @@ def csv_export(request):
 def csv_import(request):
     try:
         if request.method == 'POST':
-            print('='*100)
             body_unicode = request.body.decode('utf-8')
             data = body_unicode.split('\n')[4:]
             data_tmp = '\r'.join(data).split('\r')
@@ -55,3 +56,9 @@ def csv_import(request):
             return JsonResponse({'message': 'Users imported successfully.', 'error': False})
     except:
         return JsonResponse({'message': 'An error occurred.', 'error': True})
+
+def save_user_profile(sender, instance, signal, *args, **kwargs):
+    if sender is User:
+        UserProfile.objects.create(user=instance, avatar="")
+        
+post_save.connect(save_user_profile, sender=User)
