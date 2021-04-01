@@ -20,6 +20,8 @@
       <ul class="flex">
         {% if user.is_authenticated %}
           <li style="margin-right: 2rem;">Welcome, {{ user.username }}</li>
+          <li style="margin-right: 2rem;"><a href="{% url 'promotions' %}">Promotions</a></li>
+          <li style="margin-right: 2rem;"><a href="{% url 'class' %}">Class</a></li>
           <li><a href="{% url 'logout' %}">Log Out</a></li>
         {% else %}
           <li><a href="{% url 'login' %}">Log In</a></li>            

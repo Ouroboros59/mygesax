@@ -5,7 +5,7 @@ from django.http import HttpResponse, JsonResponse
 import csv
 import json
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
@@ -19,12 +19,9 @@ def import_doc(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
-        filename = fs.save(f"static/uploads/{myfile.name}", myfile)
-        uploaded_file_url = fs.url(filename)
-        return render(request, 'home.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
-    return render(request, 'home.html')
+        fs.save(f"static/uploads/{myfile.name}", myfile)
+        return redirect('/')
+    return redirect('/')
 
 def csv_export(request):
     response = HttpResponse(content_type='text/csv')
