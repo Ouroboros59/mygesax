@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Promotions</h2>
+    <ul>
+        {% for promotion in object_list %}
+        <table>
+            <caption>Promo Name: {{ promotion.name }}</caption>
+            <tr>
+                <th>Subject Name</th>
+                <th>Subject description</th>
+                <th>Subject Grade</th>
+            </tr>
+            {% for subject in promotion.subjects.all %}
+            <tr>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.description}}</td>
+                <td>{{ subject.grade.note}}</td>
+            {% empty %}
+                <li>No subject in this Promo yet.</li>
+            {% endfor %}
+            </tr>
+        </table>
+        {% empty %}
+            <li>No Promo yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

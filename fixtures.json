@@ -1,0 +1,111 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "ttt",
+            "password": "pbkdf2_sha256$216000$Xj4Auh8Lk56o$gmP3o8kHgJlqNFUI+go0JWmn1m1Pwhc1zHUU3YwvtyM="
+        }
+    },    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "aaa",
+            "password": "pbkdf2_sha256$216000$Xj4Auh8Lk56o$gmP3o8kHgJlqNFUI+go0JWmn1m1Pwhc1zHUU3YwvtyM="
+        }
+    },    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "ccc",
+            "password": "pbkdf2_sha256$216000$Xj4Auh8Lk56o$gmP3o8kHgJlqNFUI+go0JWmn1m1Pwhc1zHUU3YwvtyM="
+        }
+    },
+    {
+        "model": "base.subject",
+        "pk": 1,
+        "fields": {
+            "name": "lalalalalal",
+            "description": ";a;a;a;pefmopem"
+        }
+    },
+    {
+        "model": "base.subject",
+        "pk": 2,
+        "fields": {
+            "name": "kkkkkkk",
+            "description": "dldldl"
+        }
+    },
+    {
+        "model": "base.subject",
+        "pk": 3,
+        "fields": {
+            "name": "ppppppp",
+            "description": "ddfmopem"
+        }
+    },
+    {
+        "model": "base.promotion",
+        "pk": 1,
+        "fields": {
+            "name": "promo1",
+            "users": [1, 2],
+            "subjects": [1,2,3]
+        }
+    },
+    {
+        "model": "base.promotion",
+        "pk": 2,
+        "fields": {
+            "name": "promo2",
+            "users": [1, 3],
+            "subjects": [3]
+        }
+    },
+    {
+        "model": "base.promotion",
+        "pk": 3,
+        "fields": {
+            "name": "promo3",
+            "users": [3],
+            "subjects": [3]
+        }
+    },
+    {
+        "model": "base.promotion",
+        "pk": 4,
+        "fields": {
+            "name": "promo4",
+            "users": [2, 3],
+            "subjects": [3]
+        }
+    },
+    {
+        "model": "base.grade",
+        "pk": 1,
+        "fields": {
+            "note":14 ,
+            "user": 1,
+            "subject":1
+        }
+    },
+    {
+        "model": "base.grade",
+        "pk": 1,
+        "fields": {
+            "note":10 ,
+            "user": 1,
+            "subject":2
+        }
+    }, 
+    {
+        "model": "base.grade",
+        "pk": 1,
+        "fields": {
+            "note":4 ,
+            "user": 1,
+            "subject":3
+        }
+    }
+]
