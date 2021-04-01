@@ -1,7 +1,9 @@
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.generic import ListView
 
 from subject.form import GradeCreationForm
+from base.models import Grade
 
 
 class AddGradeView(generic.FormView):
@@ -17,3 +19,10 @@ class AddGradeView(generic.FormView):
     def form_valid(self, form):
         form.save()
         return super(AddGradeView, self).form_valid(form)
+
+class UserGradeView(ListView):
+    model = Grade    
+    context_object_name="student_grade"
+    template_name="grades/user.html"
+    def get_queryset(self):
+        return Grade.objects.filter(user=self.request.user)
